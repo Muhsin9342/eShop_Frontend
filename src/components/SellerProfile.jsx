@@ -13,10 +13,12 @@ function SellerProfile() {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/sellers/" + id).then((resp) => {
-      console.log(resp.data.data);
-      setUser(resp.data.data);
-    });
+    axios
+      .get("https://eshop-spring-backend.herokuapp.com/api/sellers/" + id)
+      .then((resp) => {
+        console.log(resp.data.data);
+        setUser(resp.data.data);
+      });
   }, []);
   return (
     <div className="container">

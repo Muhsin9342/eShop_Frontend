@@ -56,11 +56,13 @@ function ViewCart() {
       customerid: sessionStorage.getItem("id"),
     };
     console.log(data);
-    axios.post("http://localhost:8080/api/orders", data).then((resp) => {
-      console.log(resp);
-      dispatch({ type: "Clear" });
-      history.push("/myorders");
-    });
+    axios
+      .post("https://eshop-spring-backend.herokuapp.com/api/orders", data)
+      .then((resp) => {
+        console.log(resp);
+        dispatch({ type: "Clear" });
+        history.push("/myorders");
+      });
   };
   return (
     <div className="container-fluid text-black">
@@ -86,7 +88,10 @@ function ViewCart() {
                     <td>
                       <img
                         className="mr-2 float-left"
-                        src={"http://localhost:8080/" + item.photo}
+                        src={
+                          "https://eshop-spring-backend.herokuapp.com/" +
+                          item.photo
+                        }
                         width="100"
                         alt=""
                       />

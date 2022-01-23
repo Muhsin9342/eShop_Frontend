@@ -31,7 +31,7 @@ function RegSupplier() {
     if (Object.keys(errors).length === 0 && submitted) {
       console.log(user);
       axios
-        .post("http://localhost:8080/api/sellers", user)
+        .post("https://eshop-spring-backend.herokuapp.com/api/sellers", user)
         .then((resp) => {
           console.log(resp);
           alert("Seller registered successfully");

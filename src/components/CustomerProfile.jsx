@@ -18,10 +18,12 @@ function CustomerProfile() {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/customers/" + id).then((resp) => {
-      console.log(resp.data.data);
-      setUser(resp.data.data);
-    });
+    axios
+      .get("https://eshop-spring-backend.herokuapp.com/api/customers/" + id)
+      .then((resp) => {
+        console.log(resp.data.data);
+        setUser(resp.data.data);
+      });
   }, []);
 
   const handleInput = (e) => {
@@ -31,7 +33,10 @@ function CustomerProfile() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put("http://localhost:8080/api/customers/" + id, user)
+      .put(
+        "https://eshop-spring-backend.herokuapp.com/api/customers/" + id,
+        user
+      )
       .then((resp) => {
         alert("Profile updated successfully");
         setUname(user.name);

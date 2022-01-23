@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 function AllCustomers() {
   const [customers, setCustomers] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/api/customers").then((resp) => {
-      setCustomers(resp.data.data);
-      console.log(customers);
-    });
+    axios
+      .get("https://eshop-spring-backend.herokuapp.com/api/customers")
+      .then((resp) => {
+        setCustomers(resp.data.data);
+        console.log(customers);
+      });
   }, []);
 
   return (

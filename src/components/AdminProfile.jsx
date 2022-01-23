@@ -17,7 +17,7 @@ function AdminProfile() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8080/api/admin", user)
+      .post("https://eshop-spring-backend.herokuapp.com/api/admin", user)
       .then((resp) => {
         console.log(resp);
         alert("Profile updated successfully");

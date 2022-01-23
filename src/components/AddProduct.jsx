@@ -46,7 +46,10 @@ function AddProduct() {
       formData.append("sellerId", sellerid);
       console.log(product);
       axios
-        .post("http://localhost:8080/api/products", formData)
+        .post(
+          "https://eshop-spring-backend.herokuapp.com/api/products",
+          formData
+        )
         .then((resp) => {
           let result = resp.data.data;
           console.log(result);

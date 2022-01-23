@@ -38,7 +38,7 @@ function AllProduct() {
   const loadDataFromServer = (page = 0, pagesize = 8) => {
     axios
       .get(
-        "http://localhost:8080/api/products/paginated?page=" +
+        "https://eshop-spring-backend.herokuapp.com/api/products/paginated?page=" +
           page +
           "&pagesize=" +
           pagesize
@@ -57,7 +57,10 @@ function AllProduct() {
     console.log(pcat.cat);
     if (pcat.cat !== undefined) {
       axios
-        .get("http://localhost:8080/api/products?cat=" + pcat.cat)
+        .get(
+          "https://eshop-spring-backend.herokuapp.com/api/products?cat=" +
+            pcat.cat
+        )
         .then((resp) => {
           console.log(resp.data);
           setProducts(resp.data.data);
@@ -133,7 +136,10 @@ function AllProduct() {
                 <div className="modal-body">
                   <div className="d-flex">
                     <img
-                      src={"http://localhost:8080/" + item.photo}
+                      src={
+                        "https://eshop-spring-backend.herokuapp.com/" +
+                        item.photo
+                      }
                       //src={item.photo}
                       style={{ width: "200px" }}
                       alt=""

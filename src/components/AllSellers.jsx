@@ -4,23 +4,29 @@ import { useEffect, useState } from "react";
 function AllSellers() {
   const [sellers, setSellers] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/api/sellers").then((resp) => {
-      //console.log(resp.data.data)
-      setSellers(resp.data.data);
-      console.log(sellers);
-    });
+    axios
+      .get("https://eshop-spring-backend.herokuapp.com/api/sellers")
+      .then((resp) => {
+        //console.log(resp.data.data)
+        setSellers(resp.data.data);
+        console.log(sellers);
+      });
   }, []);
 
   const deleteSeller = (id) => {
     let response = window.confirm("Are you sure to delete this supplier ?");
     if (response) {
       console.log(id);
-      axios.delete("http://localhost:8080/api/sellers/" + id).then((resp) => {
-        axios.get("http://localhost:8080/api/sellers").then((resp) => {
-          //console.log(resp.data.data)
-          setSellers(resp.data.data);
+      axios
+        .delete("https://eshop-spring-backend.herokuapp.com/api/sellers/" + id)
+        .then((resp) => {
+          axios
+            .get("https://eshop-spring-backend.herokuapp.com/api/sellers")
+            .then((resp) => {
+              //console.log(resp.data.data)
+              setSellers(resp.data.data);
+            });
         });
-      });
     }
   };
 

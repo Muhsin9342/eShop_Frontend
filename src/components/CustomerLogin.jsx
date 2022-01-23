@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import loginvalidation from "../loginvalidation";
 
-
 function CustomerLogin() {
   const dispatch = useDispatch();
 
@@ -31,7 +30,10 @@ function CustomerLogin() {
     if (Object.keys(errors).length === 0 && submitted) {
       console.log(user);
       axios
-        .post("http://localhost:8080/api/customers/validate", user)
+        .post(
+          "https://eshop-spring-backend.herokuapp.com/api/customers/validate",
+          user
+        )
         .then((resp) => {
           let result = resp.data.data;
           console.log(resp.data.data);
@@ -44,8 +46,8 @@ function CustomerLogin() {
         })
         .catch((error) => {
           console.log("Error", error);
-          
-           alert("Invalid username or password");
+
+          alert("Invalid username or password");
         });
     }
   }, [errors]);

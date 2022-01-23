@@ -7,7 +7,10 @@ function MyProducts() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/products?sellerid=" + sellerid)
+      .get(
+        "https://eshop-spring-backend.herokuapp.com/api/products?sellerid=" +
+          sellerid
+      )
       .then((resp) => {
         console.log(resp.data);
         setProducts(resp.data.data);
@@ -19,11 +22,16 @@ function MyProducts() {
     let resp = window.confirm("Are you sure to delete this product ?");
     if (resp) {
       axios
-        .delete("http://localhost:8080/api/products/" + prodid)
+        .delete(
+          "https://eshop-spring-backend.herokuapp.com/api/products/" + prodid
+        )
         .then((resp) => {
           alert("Product deleted successfully");
           axios
-            .get("http://localhost:8080/api/products?sellerid=" + sellerid)
+            .get(
+              "https://eshop-spring-backend.herokuapp.com/api/products?sellerid=" +
+                sellerid
+            )
             .then((resp) => {
               console.log(resp.data);
               setProducts(resp.data.data);
@@ -54,8 +62,11 @@ function MyProducts() {
                   <td>
                     <img
                       width="100"
-                      src={"http://localhost:8080/" + x.photo}
+                      src={
+                        "https://eshop-spring-backend.herokuapp.com/" + x.photo
+                      }
                       className="img-thumnail"
+                      alt=""
                     />
                     {x.pname}
                   </td>

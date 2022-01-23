@@ -39,7 +39,7 @@ function RegCustomer() {
     if (Object.keys(errors).length === 0 && submitted) {
       console.log(user);
       axios
-        .post("http://localhost:8080/api/customers", user)
+        .post("https://eshop-spring-backend.herokuapp.com/api/customers", user)
         .then((resp) => {
           console.log(resp);
           alert("Customer registered successfully");

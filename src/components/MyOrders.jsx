@@ -11,7 +11,7 @@ function MyOrders() {
   useEffect(() => {
     axios
       .get(
-        "http://localhost:8080/api/orders?custid=" +
+        "https://eshop-spring-backend.herokuapp.com/api/orders?custid=" +
           sessionStorage.getItem("id")
       )
       .then((resp) => {
@@ -21,10 +21,12 @@ function MyOrders() {
   }, []);
 
   const showDetails = (orderid) => {
-    axios.get("http://localhost:8080/api/orders/" + orderid).then((resp) => {
-      console.log(resp.data);
-      setDetails(resp.data.data.details);
-    });
+    axios
+      .get("https://eshop-spring-backend.herokuapp.com/api/orders/" + orderid)
+      .then((resp) => {
+        console.log(resp.data);
+        setDetails(resp.data.data.details);
+      });
     setShow(true);
   };
 
@@ -83,7 +85,10 @@ function MyOrders() {
                       <td>
                         <img
                           className="mr-2 float-left"
-                          src={"http://localhost:8080/" + x.product.photo}
+                          src={
+                            "https://eshop-spring-backend.herokuapp.com/" +
+                            x.product.photo
+                          }
                           width="100"
                           alt=""
                         />

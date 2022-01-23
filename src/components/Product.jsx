@@ -12,7 +12,7 @@ function Product(props) {
         <div className="card-body py-1">
           <img
             style={{ width: "90%", height: "250px", marginBottom: "10px" }}
-            src={"http://localhost:8080/" + x.photo}
+            src={"https://eshop-spring-backend.herokuapp.com/" + x.photo}
             className="img-thumnail"
             alt=""
           />

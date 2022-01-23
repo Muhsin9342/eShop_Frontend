@@ -8,17 +8,21 @@ function Orders() {
   const [details, setDetails] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/orders").then((resp) => {
-      console.log(resp.data);
-      setOrders(resp.data.data);
-    });
+    axios
+      .get("https://eshop-spring-backend.herokuapp.com/api/orders")
+      .then((resp) => {
+        console.log(resp.data);
+        setOrders(resp.data.data);
+      });
   }, []);
 
   const showDetails = (orderid) => {
-    axios.get("http://localhost:8080/api/orders/" + orderid).then((resp) => {
-      console.log(resp.data);
-      setDetails(resp.data.data.details);
-    });
+    axios
+      .get("https://eshop-spring-backend.herokuapp.com/api/orders/" + orderid)
+      .then((resp) => {
+        console.log(resp.data);
+        setDetails(resp.data.data.details);
+      });
     setShow(true);
   };
   return (
@@ -78,7 +82,10 @@ function Orders() {
                       <td>
                         <img
                           className="mr-2 float-left"
-                          src={"http://localhost:8080/" + x.product.photo}
+                          src={
+                            "https://eshop-spring-backend.herokuapp.com/" +
+                            x.product.photo
+                          }
                           width="100"
                           alt=""
                         />
